@@ -1,54 +1,63 @@
-<header>
+# 🧠 ZedSec Reverse Shell Suite
 
-<!--
-  <<< Author notes: Course header >>>
-  Include a 1280×640 image, course title in sentence case, and a concise description in emphasis.
-  In your repository settings: enable template repository, add your 1280×640 social image, auto delete head branches.
-  Add your open source license, GitHub uses MIT license.
--->
+This project showcases a custom reverse shell written in Python for red team operations, C2 testing, and malware lab development.
 
-# GitHub Pages
+## ⚔️ Purpose
 
-_Create a site or blog from your GitHub repositories with GitHub Pages._
+This shell is built for:
 
-</header>
+- Payload chaining in internal lab simulations
+- Command & Control (C2) development
+- Penetration testing and adversary emulation
+- Ethical red teaming environments
 
-<!--
-  <<< Author notes: Step 1 >>>
-  Choose 3-5 steps for your course.
-  The first step is always the hardest, so pick something easy!
-  Link to docs.github.com for further explanations.
-  Encourage users to open new tabs for steps!
--->
+## 💻 Features
 
-## Step 1: Enable GitHub Pages
+- Reverse TCP shell over socket
+- Graceful exit handling
+- Cross-platform compatible
+- Minimal dependencies
 
-_Welcome to GitHub Pages and Jekyll :tada:!_
+## 🧪 Tested In
 
-The first step is to enable GitHub Pages on this [repository](https://docs.github.com/en/get-started/quickstart/github-glossary#repository). When you enable GitHub Pages on a repository, GitHub takes the content that's on the main branch and publishes a website based on its contents.
+- Arch Linux / Kali Linux
+- Windows 10 (x86/x64) via VirtualBox
+- Host-only networks
 
-### :keyboard: Activity: Enable GitHub Pages
+## 🚀 Usage
 
-1. Open a new browser tab, and work on the steps in your second tab while you read the instructions in this tab.
-1. Under your repository name, click **Settings**.
-1. Click **Pages** in the **Code and automation** section.
-1. Ensure "Deploy from a branch" is selected from the **Source** drop-down menu, and then select `main` from the **Branch** drop-down menu.
-1. Click the **Save** button.
-1. Wait about _one minute_ then refresh this page (the one you're following instructions from). [GitHub Actions](https://docs.github.com/en/actions) will automatically update to the next step.
-   > Turning on GitHub Pages creates a deployment of your repository. GitHub Actions may take up to a minute to respond while waiting for the deployment. Future steps will be about 20 seconds; this step is slower.
-   > **Note**: In the **Pages** of **Settings**, the **Visit site** button will appear at the top. Click the button to see your GitHub Pages site.
+1. **Start listener on attacker machine:**
+   ```bash
+   nc -lvnp 4444
+   ```
 
-<footer>
+2. **Deploy on victim (lab only):**
+   ```bash
+   python reverse_shell.py
+   ```
 
-<!--
-  <<< Author notes: Footer >>>
-  Add a link to get support, GitHub status page, code of conduct, license link.
--->
+## 📂 Structure
 
----
+```
+.
+├── reverse_shell.py   # Python-based reverse shell
+├── README.md
+├── LICENSE
+└── screenshots/
+```
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/github-pages) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+## 📸 Screenshots
 
-&copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+<img src="screenshots/demo.png" alt="Reverse Shell Demo" width="600"/>
 
-</footer>
+## 🔐 Legal Disclaimer
+
+For ethical hacking in **controlled, lab-based environments** only.  
+ZedSec does not condone unauthorized access or malicious use.
+
+## 📫 Contact
+
+Made by ZedSec — Solo Red Team Operator  
+📧 hacktheworld.zedsec@yahoo.com
+"""
+
